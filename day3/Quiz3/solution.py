@@ -1,7 +1,10 @@
+#mport numpy as np
+
 def maze_runner(maze,list):
     result = "Lost" 
     row = -1
     col = 0
+    mazeLen = len(maze)-1
     for i in maze:
         row+=1
         if 2 in i :
@@ -18,7 +21,7 @@ def maze_runner(maze,list):
         else :
             row+=1
         
-        if row < 0 or col < 0 or maze[row][col] == 1:
+        if row > mazeLen or row < 0 or col > mazeLen or col < 0 or maze[row][col] == 1:
             result = "Dead"
             break
         elif  maze[row][col] == 3:
@@ -32,5 +35,5 @@ def maze_runner(maze,list):
 
 if __name__ == "__main__":
     maze = [[1,1,1,1,1,1,1], [1,0,0,0,0,0,3], [1,0,1,0,1,0,1], [0,0,1,0,0,0,1], [1,0,1,0,1,0,1], [1,0,0,0,0,0,1], [1,2,1,0,1,0,1]]
-    load = ["N","N","N","N","N","E","E","E","E","E"]
+    load = ["N","N","N","N","N","E","E","S","S","S","S","S","S"]
     maze_runner(maze,load)
